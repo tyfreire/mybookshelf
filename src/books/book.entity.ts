@@ -1,18 +1,5 @@
 import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
 
-export enum BookLanguage{
-  ENGLISH = 'english',
-  GERMAN = 'german',
-  PORTUGUESE = 'portuguese',
-  ITALIAN = 'italian'
-}
-
-export enum BookStatus{
-  TBR = 'tbr',
-  WIP = 'wip',
-  READ ='read',
-  PENDING = 'pending'
-}
 @Entity()
 export class Book{
 
