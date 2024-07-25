@@ -3,14 +3,12 @@ import { BooksService } from './books.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Book } from './book.entity';
 
-
 describe('BooksService', () => {
   let bookservice: BooksService;
 
   const mockBookRepository ={
     create: jest.fn().mockImplementation(dto =>dto),
     save: jest.fn().mockImplementation(book => Promise.resolve({id: Math.random(), ...book}))
-
   }
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -43,7 +41,5 @@ describe('BooksService', () => {
 
     const book_1 = await mockBookRepository.save(book)
     expect(await book_1.author).toBe("Myself")
-
-
   })
 });
