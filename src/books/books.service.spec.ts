@@ -27,19 +27,19 @@ describe('BooksService', () => {
 
 
   it('should persist a book in the DB and return it', async ()=>{
-    const dto ={
-      title: "Book1",
-      author: "Myself",
+    const dto = {
+      title: 'Book1',
+      author: 'Myself',
       pages: 150,
-      language: "ENGLISH",
-      status: "READ",
-      isbn: 1212354465
-    }
+      language: 'ENGLISH',
+      status: 'READ',
+      isbn: 1212354465,
+    };
 
-    let book =  mockBookRepository.create(dto)
-    expect(book.title).toBe("Book1")
+    let book = mockBookRepository.create(dto);
+    expect(book.title).toBe('Book1');
 
-    const book_1 = await mockBookRepository.save(book)
-    expect(await book_1.author).toBe("Myself")
+    const book_1 = await mockBookRepository.save(book);
+    expect(await book_1.author).toBe('Myself');
   })
 });

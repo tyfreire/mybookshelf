@@ -35,8 +35,7 @@ describe('BooksController', () => {
     jest.clearAllMocks();
   });
 
-  it('should be defined', async() => {
+  it('should be defined', async () => {
     expect(controller).toBeDefined();
   });
-
 })
