@@ -4,11 +4,12 @@ import { CreateBookDto } from './dtos/create-book.dto';
 
 @Controller('books')
 export class BooksController {
-  constructor(private bookService: BooksService){}
+  constructor(private bookService: BooksService) {}
 
   @Post()
-  async createBook(@Body() body: CreateBookDto){
+  async createBook(@Body() body: CreateBookDto) {
     const book = await this.bookService.create(body);
+
     return book;
   }
 }
