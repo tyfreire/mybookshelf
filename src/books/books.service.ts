@@ -13,7 +13,23 @@ export class BooksService {
     return this.repo.save(book);
   }
 
-  // findOne(){}
-  // update(){}
-  // remove(){}
+  async findAll() {
+    const allbooks = this.repo.find();
+    return allbooks;
+  }
+  async findOne(id: number) {
+    const book = await this.repo.findOne({ where: { id: id } });
+    return book;
+  }
+
+  async update(id: number, attrs: Partial<Book>) {
+    let book = await this.repo.findOne({ where: { id: id } });
+
+    book = Object.assign(book, attrs);
+    return this.repo.save(book);
+  }
+  async remove(id: number) {
+    let book = await this.repo.findOne({ where: { id: id } });
+    await this.repo.remove(book);
+  }
 }
