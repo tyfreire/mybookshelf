@@ -8,13 +8,13 @@ import { CreateBookDto } from './dtos/create-book.dto';
 export class BooksService {
   constructor(@InjectRepository(Book) private repo: Repository<Book>) {}
 
-  async create(bookDto: CreateBookDto) {
+  create(bookDto: CreateBookDto) {
     const book = this.repo.create(bookDto);
     return this.repo.save(book);
   }
 
   async findAll() {
-    const allbooks = this.repo.find();
+    const allbooks = await this.repo.find();
     return allbooks;
   }
   async findOne(id: number) {
@@ -28,8 +28,9 @@ export class BooksService {
     book = Object.assign(book, attrs);
     return this.repo.save(book);
   }
+
   async remove(id: number) {
     let book = await this.repo.findOne({ where: { id: id } });
-    await this.repo.remove(book);
+    this.repo.remove(book);
   }
 }
