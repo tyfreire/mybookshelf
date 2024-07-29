@@ -1,2 +1,23 @@
 <!DOCTYPE html>
-<html>H1 "Testing"</html>
+<html>
+  <head>
+    <title>My Book Shelf</title>
+  </head>
+  <body>
+    <button id="fetchBooks">Fetch Books</button>
+    <div id="books"></div>
+
+  <script>
+    document.getElementById('fetchBooks').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/books');
+        const data = await response.text();
+        document.getElementById('books').innerText = data;
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
+    });
+  </script>
+  </body>
+</html>
+
