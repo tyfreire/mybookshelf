@@ -41,6 +41,6 @@ export class BooksController {
   @Delete('/:id')
   async remove(@Param('id') id: number) {
     await this.bookService.remove(id);
-    return 'Your book is gone';
+    return 'The book has been deleted.';
   }
 }
