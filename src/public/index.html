@@ -4,20 +4,34 @@
     <title>My Book Shelf</title>
   </head>
   <body>
-    <button id="fetchBooks">Fetch Books</button>
-    <div id="books"></div>
+    <button id="fetchBooks">List Books</button>
 
-  <script>
-    document.getElementById('fetchBooks').addEventListener('click', async () => {
-      try {
-        const response = await fetch('/books');
-        const data = await response.text();
-        document.getElementById('books').innerText = data;
-      } catch (error) {
-        console.error('Error fetching books:', error);
-      }
-    });
-  </script>
+    <template id="bookTemplate">
+      <tr>
+        <th slot="title">The Darkest mind</th> 
+        <td slot="author">Alexandra Braken</td>
+        <td slot="pages">528</td>
+        <td slot="language">ENGLISH</td>
+        <td slot="status">READ</td>
+        <td slot="isbn">1212354465</td>
+      </tr>
+    </template>
+
+    <table>
+      <thead>
+        <tr>
+          <th>title</th>
+          <th>author</th>
+          <th>pages</th>
+          <th>language</th>
+          <th>status</th>
+          <th>isbn</th>
+        </tr>
+      </thead>
+      <tbody id="bookTableBody"></tbody>
+    </table>
+   
+    <script src="index.js" ></script>
   </body>
 </html>
 
