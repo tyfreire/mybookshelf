@@ -2,6 +2,22 @@
 <html>
   <head>
     <title>My Book Shelf</title>
+    <style>
+      table {
+        width: 100%;
+      }
+      table,
+      tr,
+      td {
+        border: 1px solid;
+        border-collapse: collapse;
+        border-color: lightslategrey;
+      }
+      caption {
+        color: blueviolet;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <button id="fetchBooks">List Books</button>
@@ -18,6 +34,9 @@
     </template>
 
     <table>
+      <caption>
+        My Bookshelf
+      </caption>
       <thead>
         <tr>
           <th>title</th>
