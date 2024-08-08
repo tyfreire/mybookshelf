@@ -1,0 +1,45 @@
+table {
+  width: 100%;
+}
+table,
+tr,
+td,
+th {
+  border: 0px solid;
+  border-collapse: collapse;
+  color: rgb(178, 140, 214);
+}
+caption {
+  color: rgb(116, 7, 206);
+  font-weight: bold;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: purple;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: purple;
+}
