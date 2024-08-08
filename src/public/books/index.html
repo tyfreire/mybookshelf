@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Book Shelf</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <template id="bookTemplate">
+      <tr>
+        <th><a slot="title" href="#">The Darkest mind</a></th>
+        <!-- <td slot="author">Alexandra Braken</td>
+        <td slot="pages">528</td>
+        <td slot="language">ENGLISH</td>
+        <td slot="status">READ</td>
+        <td slot="isbn">1212354465</td>
+        <td slot="id">12</td> -->
+      </tr>
+    </template>
+
+    <table>
+      <caption>
+        My Bookshelf
+      </caption>
+
+      <tbody id="bookTableBody"></tbody>
+    </table>
+
+    <script src="index.js"></script>
+  </body>
+</html>
