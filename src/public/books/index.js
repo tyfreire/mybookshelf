@@ -4,7 +4,6 @@ const bookTableBody = document.getElementById('bookTableBody');
 function populateTemplate(book) {
   const clone = document.importNode(template, true);
   const title = clone.querySelector('a[slot="title"]');
-
   title.href = `/public/books/show.html?id=${book.id}`;
   title.textContent = book.title;
 
