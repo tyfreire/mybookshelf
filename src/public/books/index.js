@@ -21,5 +21,4 @@ async function fetch_books() {
     console.error('Error fetching books:', error);
   }
 }
-
 document.addEventListener('DOMContentLoaded', fetch_books);
