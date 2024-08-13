@@ -5,12 +5,13 @@ table,
 tr,
 td,
 th {
-  border: 0px solid;
+  border: 1px dotted;
   border-collapse: collapse;
-  color: rgb(178, 140, 214);
+  border-color: rgb(137, 136, 138);
+  color: rgb(143, 93, 222);
 }
 caption {
-  color: rgb(116, 7, 206);
+  color: rgb(72, 5, 128);
   font-weight: bold;
 }
 ul {
