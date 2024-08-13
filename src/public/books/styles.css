@@ -1,14 +1,15 @@
 table {
   width: 50%;
 }
-table,
-tr,
-td,
+#bookTemplate {
+  margin: 8px;
+}
+
 th {
-  border: 1px dotted;
-  border-collapse: collapse;
-  border-color: rgb(137, 136, 138);
-  color: rgb(60, 59, 61);
+  color: blueviolet;
+}
+td {
+  color: rgb(43, 26, 165);
 }
 caption {
   color: rgb(72, 5, 128);
