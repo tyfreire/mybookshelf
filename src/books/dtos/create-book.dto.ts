@@ -1,14 +1,22 @@
-import { IsString,IsNumber } from "class-validator";
+import { IsString, IsNumber, IsNotEmpty, Matches } from 'class-validator';
 
-
-export class CreateBookDto{
+export class CreateBookDto {
   @IsString()
+  @IsNotEmpty({ message: 'Title cannot be empty' })
+  @Matches(/^(?! )[^s](?:.*[^s])?$/, {
+    message: 'Please remove spaces from the beginning or end of the line',
+  })
   title: string;
 
   @IsString()
+  @IsNotEmpty({ message: 'Author cannot be empty' })
+  @Matches(/^(?! )[^s](?:.*[^s])?$/, {
+    message: 'Please remove spaces from the beginning or end of the line',
+  })
   author: string;
 
   @IsNumber()
+  @IsNotEmpty({ message: 'Pages cannot be empty' })
   pages: number;
 
   @IsString()
@@ -18,5 +26,6 @@ export class CreateBookDto{
   status: string;
 
   @IsNumber()
+  @IsNotEmpty({ message: 'ISBN cannot be empty' })
   isbn: number;
 }
