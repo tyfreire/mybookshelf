@@ -21,7 +21,22 @@ function populateTemplate(book) {
 
   bookTableBodyEl.appendChild(clone);
 }
+async function deleteBook(event) {
+  event.preventDefault();
 
+  const id = get_id_from_url();
+
+  const response = await fetch(`/books/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (response.status === 200) {
+    alert('Book deleted');
+    window.location = '/public/books/index.html';
+  } else {
+    alert('Nope');
+  }
+}
 async function main() {
   const id = get_id_from_url();
   const book = await fetch_book_by_id(id);
@@ -29,3 +44,4 @@ async function main() {
 }
 
 document.addEventListener('DOMContentLoaded', main);
+document.getElementById('delete').addEventListener('click', deleteBook);
