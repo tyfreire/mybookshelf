@@ -9,38 +9,42 @@ import {
 } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { CreateBookDto } from './dtos/create-book.dto';
+import { Book } from './book.entity';
 
 @Controller('books')
 export class BooksController {
   constructor(private bookService: BooksService) {}
 
   @Post()
-  async createBook(@Body() body: CreateBookDto) {
-    const book = await this.bookService.create(body);
+  async createBook(@Body() body: CreateBookDto): Promise<Book> {
+    const book: Book = await this.bookService.create(body);
     return book;
   }
 
   @Get()
-  async findAll() {
-    const allbooks = await this.bookService.findAll();
+  async findAll(): Promise<Book[]> {
+    const allbooks: Book[] = await this.bookService.findAll();
     return allbooks;
   }
 
   @Get('/:id')
-  async findOne(@Param('id') id: number) {
-    const book = await this.bookService.findOne(id);
+  async findOne(@Param('id') id: number): Promise<Book> {
+    const book: Book = await this.bookService.findOne(id);
     return book;
   }
 
   @Patch('/:id')
-  async update(@Param('id') id: number, @Body() body: CreateBookDto) {
-    const book = await this.bookService.update(id, body);
+  async update(
+    @Param('id') id: number,
+    @Body() body: CreateBookDto,
+  ): Promise<Book> {
+    const book: Book = await this.bookService.update(id, body);
     return book;
   }
 
   @Delete('/:id')
-  async remove(@Param('id') id: number) {
+  async remove(@Param('id') id: number): Promise<{ message: string }> {
     await this.bookService.remove(id);
-    return 'The book has been deleted.';
+    return { message: 'The book has been deleted.' };
   }
 }
